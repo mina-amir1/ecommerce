@@ -1,0 +1,64 @@
+<div class="admin-panel__content">
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="section-header">
+                <h1>Edit User</h1>
+            </div>
+
+            <?php if(strlen($error)>0) { ?>
+            <div class="alert alert-danger">
+                <p><?php echo $error; ?></p>
+            </div>
+            <?php } ?>
+
+
+            <?php if(strlen($success)>0) { ?>
+            <div class="alert alert-success">
+                <p><?php echo $success; ?> to view users <a href="allUsers.php">click here</a> </p>
+            </div>
+            <?php } ?>
+
+        </div>
+
+        <div class="col-md-8">
+            <form class="form-horizontal" action="editUser.php?id= <?php echo $id;?>" method="post">
+
+                <div class="form-group">
+                    <label for="username" class="col-sm-3 control-label">Username</label>
+                    <div class="col-sm-9">
+                        <input type="text" name="username" class="form-control" id="username" value="<?php echo $data[0]['username']; ?>" >
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="email-address" class="col-sm-3 control-label">Email Address</label>
+                    <div class="col-sm-9">
+                        <input type="text" name="email" class="form-control" id="email-address"  value="<?php echo $data[0]['email']; ?>" >
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="password" class="col-sm-3 control-label">Password</label>
+                    <div class="col-sm-9">
+                        <input type="password" name="password" class="form-control" id="password" >
+                    </div>
+                </div>
+                <input type="hidden" name="id" class="form-control" value="<?php echo $data[0]['id']; ?>">
+
+                <div class="form-group">
+                    <div class="col-sm-offset-3 col-sm-9">
+                        <button type="submit" class="btn btn-success"><i class="fa fa-user"></i> Update User</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+
+
+    </div>
+
+
+</div>
